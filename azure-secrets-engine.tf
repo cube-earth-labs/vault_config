@@ -23,9 +23,9 @@ resource "vault_azure_secret_backend" "azure" {
   client_secret   = var.arm_client_secret
 }
 
-resource "vault_azure_secret_backend_role" "generated_read_role" {
+resource "vault_azure_secret_backend_role" "read_only" {
   backend          = vault_azure_secret_backend.azure.path
-  role             = "generated_read_role"
+  role             = "read_only"
   sign_in_audience = "AzureADMyOrg"
   tags             = ["team:engineering", "environment:development"]
   ttl              = 300
@@ -33,6 +33,6 @@ resource "vault_azure_secret_backend_role" "generated_read_role" {
 
   azure_roles {
     role_name = "Reader"
-    scope     = "/subscriptions/${var.arm_subscription_id}/resourceGroups/azure-vault-group"
+    scope     = "/subscriptions/${var.arm_subscription_id}"
   }
 }
