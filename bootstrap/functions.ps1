@@ -1,6 +1,6 @@
 # Example usage:
-# Check-VaultNamespaceExists -Namespace "exampleNamespace"
-function Check-VaultNamespaceExists {
+# Test-VaultNamespaceExists -Namespace "exampleNamespace"
+function Test-VaultNamespaceExists {
     param(
         [string]$Namespace
     )
@@ -9,8 +9,8 @@ function Check-VaultNamespaceExists {
 }
 
 # Example usage:
-# Check-VaultAuthMethodExists -MountPath "userpass"
-function Check-VaultAuthMethodExists {
+# Test-VaultAuthMethodExists -MountPath "userpass"
+function Test-VaultAuthMethodExists {
     param(
         [string]$MountPath
     )

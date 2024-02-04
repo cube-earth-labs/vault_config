@@ -3,7 +3,7 @@
 
 Write-Host "Creating $CHILD_NAMESPACE if it does not exist"
 # Check if the specified child namespace exists and create it if it doesn't
-if (!(Check-VaultNameSpaceExists -Namespace $CHILD_NAMESPACE)) {
+if (!(Test-VaultNameSpaceExists -Namespace $CHILD_NAMESPACE)) {
     vault namespace create $CHILD_NAMESPACE
 }
 
@@ -26,7 +26,7 @@ if ($ENABLE_USERPASS -eq $true) {
     # Optionally enable userpass auth method at the new namespace
     # Convenient for testing, but not recommended for production
     Write-Host "Enabling userpass if it does not exist"
-    if (!(Check-VaultAuthMethodExists -MountPath userpass)) {
+    if (!(Test-VaultAuthMethodExists -MountPath userpass)) {
         vault auth enable userpass
     }
 

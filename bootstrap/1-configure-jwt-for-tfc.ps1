@@ -4,7 +4,7 @@
 $Env:VAULT_NAMESPACE="admin/$CHILD_NAMESPACE"
 
 # Enable the JWT Auth Method
-if (!(Check-VaultAuthMethodExists -MountPath jwt-platform)) {
+if (!(Test-VaultAuthMethodExists -MountPath jwt-platform)) {
   vault auth enable -path jwt-platform jwt
 }
 
