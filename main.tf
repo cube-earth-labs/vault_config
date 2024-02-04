@@ -5,5 +5,5 @@ provider "vault" {
 # Create 'admin/alluvium' namespace
 #--------------------------------------
 resource "vault_namespace" "test" {
-  path = "test5"
+  path = "test6"
 }
