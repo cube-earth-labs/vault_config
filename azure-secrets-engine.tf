@@ -28,7 +28,7 @@ resource "vault_azure_secret_backend_role" "read_only" {
   role             = "read_only"
   sign_in_audience = "AzureADMyOrg"
   tags             = ["team:engineering", "environment:development"]
-  ttl              = 60
+  ttl              = 30
   max_ttl          = 600
 
   azure_roles {
