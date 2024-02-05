@@ -54,7 +54,11 @@ path "sys/mounts" {
   capabilities = ["list", "read"]
 }
 
-path "azure/creds/*" {
+path "azure/config" {
+  capabilities = ["read"]
+}
+
+path "azure/creds/tfc" {
   capabilities = ["read"]
 }
 EOT
