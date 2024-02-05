@@ -36,3 +36,17 @@ resource "vault_azure_secret_backend_role" "read_only" {
     scope     = "/subscriptions/${var.arm_subscription_id}"
   }
 }
+
+resource "vault_azure_secret_backend_role" "tfc" {
+  backend          = vault_azure_secret_backend.azure.path
+  role             = "tfc"
+  sign_in_audience = "AzureADMyOrg"
+  tags             = ["team:engineering", "environment:development"]
+  ttl              = 60
+  max_ttl          = 600
+
+  azure_roles {
+    role_name = "Contributor"
+    scope     = "/subscriptions/${var.arm_subscription_id}"
+  }
+}
