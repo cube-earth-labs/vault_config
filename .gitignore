@@ -40,3 +40,6 @@ terraform.rc
 
 # Env Config
 **/env.ps1
+
+# Scripts
+scripts/.venv
