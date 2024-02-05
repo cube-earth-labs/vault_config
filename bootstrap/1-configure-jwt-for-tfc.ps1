@@ -15,23 +15,36 @@ vault write auth/jwt-platform/config `
 
 # Define the Policy for the TFC Service Account
 $TFC_POLICY = @"
-# Allow tokens to query themselves
-path "auth/token/lookup-self" {
+path "sys/health" {
+  capabilities = ["read", "sudo"]
+}
+
+path "sys/policies/acl" {
+  capabilities = ["list"]
+}
+
+path "sys/policies/acl/*" {
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+
+path "auth/*" {
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+
+path "sys/auth/*" {
+  capabilities = ["create", "update", "delete", "sudo"]
+}
+
+path "sys/auth" {
   capabilities = ["read"]
 }
 
-# Allow tokens to renew themselves
-path "auth/token/renew-self" {
-    capabilities = ["update"]
+# Grant access to create secrets engines 
+path "sys/mounts/*" {  
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
 }
 
-# Allow tokens to revoke themselves
-path "auth/token/revoke-self" {
-    capabilities = ["update"]
-}
-
-# Configure the actual secrets the token should have access to
-path "secret/*" {
+path "sys/mounts" {
   capabilities = ["read"]
 }
 

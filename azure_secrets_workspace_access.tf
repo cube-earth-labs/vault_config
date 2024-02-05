@@ -32,7 +32,7 @@ resource "vault_jwt_auth_backend_role" "tfc_role" {
 }
 
 resource "vault_policy" "tfc_policy" {
-  name = "tfc-policy"
+  name = "tfc-azure-policy"
 
   policy = <<EOT
 # Allow tokens to query themselves
@@ -52,10 +52,6 @@ path "auth/token/revoke-self" {
 
 path "sys/mounts" {
   capabilities = ["list", "read"]
-}
-
-path "sys/mounts/example" {
-  capabilities = ["create", "read", "update", "patch", "delete", "list"]
 }
 
 path "azure/creds/*" {
