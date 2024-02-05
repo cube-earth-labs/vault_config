@@ -61,5 +61,9 @@ path "azure/config" {
 path "azure/creds/tfc" {
   capabilities = ["read"]
 }
+
+path "app1-secrets/database/dev" {
+  capabilities = ["read"]
+}
 EOT
 }
