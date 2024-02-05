@@ -5,7 +5,7 @@ resource "vault_mount" "app1" {
   description = "App1 Secrets"
 }
 
-resource "vault_kv_secret_v2" "app1-api-key" {
+resource "vault_kv_secret_v2" "app1-secrets" {
   mount = vault_mount.app1.path
   name  = "api-key"
   data_json = jsonencode(
