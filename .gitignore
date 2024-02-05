@@ -39,7 +39,7 @@ terraform.rc
 **/keys
 
 # Env Config
-**/env.ps1
+**/.config.ps1
 
 # Scripts
 scripts/.venv

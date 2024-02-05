@@ -1,5 +1,5 @@
-. .\env.ps1
-. .\functions.ps1
+. .\.config.ps1
+. .\.functions.ps1
 
 Write-Host "Creating $CHILD_NAMESPACE if it does not exist"
 # Check if the specified child namespace exists and create it if it doesn't
@@ -21,7 +21,7 @@ path "*" {
 # Write sudo-policy to the new namespace
 Write-Output $SUDO_POLICY | vault policy write sudo-policy -
 
-# Enable or disable this in env.ps1
+# Enable or disable this in .config.ps1
 if ($ENABLE_USERPASS -eq $true) {
     # Optionally enable userpass auth method at the new namespace
     # Convenient for testing, but not recommended for production

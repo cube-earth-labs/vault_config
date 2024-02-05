@@ -1,5 +1,5 @@
-. .\env.ps1
-. .\functions.ps1
+. .\.config.ps1
+. .\.functions.ps1
 
 $Env:VAULT_NAMESPACE="admin/$CHILD_NAMESPACE"
 
