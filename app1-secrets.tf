@@ -10,8 +10,7 @@ resource "vault_kv_secret_v2" "app1-secrets" {
   name  = "api-key"
   data_json = jsonencode(
     {
-      endpoint = "http://api.app1.example.com",
-      key      = var.app1-api-key
+      api_key = var.app1-api-key
     }
   )
   custom_metadata {
