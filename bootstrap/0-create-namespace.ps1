@@ -31,9 +31,9 @@ if ($ENABLE_USERPASS -eq $true) {
     }
 
     Write-Host "Creating userpass admin user"
-    vault write auth/userpass/users/$($USERPASS_USERNAME) `
-        password=$USERPASS_PASSWORD `
-        policies="sudo-policy"
+    Write-Host $USERPASS_USERNAME
+    Write-Host $USERPASS_PASSWORD
+    vault write auth/userpass/users/$($USERPASS_USERNAME) password=$($USERPASS_PASSWORD) policies=sudo-policy
 }
 
 $Env:VAULT_NAMESPACE=''
