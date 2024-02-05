@@ -42,8 +42,8 @@ resource "vault_azure_secret_backend_role" "tfc" {
   role             = "tfc"
   sign_in_audience = "AzureADMyOrg"
   tags             = ["team:engineering", "environment:development"]
-  ttl              = 60
-  max_ttl          = 600
+  ttl              = 3600
+  max_ttl          = 7200
 
   azure_roles {
     role_name = "Contributor"
